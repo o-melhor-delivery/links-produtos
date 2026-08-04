@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Links de Produtos</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    background:#000;
+    display:flex;
+    justify-content:center;
+}
+
+.container{
+    position:relative;
+    width:100%;
+    max-width:1086px;
+    line-height:0;
+}
+
+.container img{
+    width:100%;
+    height:auto;
+    display:block;
+}
+
+.link{
+    position:absolute;
+    display:block;
+    background:transparent;
+    cursor:pointer;
+    -webkit-tap-highlight-color:transparent;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<img id="imagem" src="imagem.png" alt="Produtos">
+
+<a class="link santoku"
+href="https://s.click.aliexpress.com/e/_c3BSjhFD"
+target="_blank"></a>
+
+<a class="link chef"
+href="https://s.click.aliexpress.com/e/_c2wEbNCT"
+target="_blank"></a>
+
+<a class="link yanagiba"
+href="https://s.click.aliexpress.com/e/_c3ZeCnDH"
+target="_blank"></a>
+
+<a class="link pinca"
+href="https://s.click.aliexpress.com/e/_c3vN5rCx"
+target="_blank"></a>
+
+<a class="link pedra"
+href="https://s.click.aliexpress.com/e/_c3jQIrwX"
+target="_blank"></a>
+
+<a class="link ralador"
+href="https://s.click.aliexpress.com/e/_c3yi7VPh"
+target="_blank"></a>
+
+</div>
+
+<script>
+
+const ORIGINAL_WIDTH = 1086;
+const ORIGINAL_HEIGHT = 1536;
+
+const areas = [
+
+{
+    class:"santoku",
+    left:365,
+    top:72,
+    width:360,
+    height:82
+},
+
+{
+    class:"chef",
+    left:425,
+    top:516,
+    width:245,
+    height:78
+},
+
+{
+    class:"yanagiba",
+    left:392,
+    top:853,
+    width:308,
+    height:82
+},
+
+{
+    class:"pinca",
+    left:372,
+    top:1193,
+    width:345,
+    height:82
+},
+
+{
+    class:"pedra",
+    left:366,
+    top:1329,
+    width:360,
+    height:82
+},
+
+{
+    class:"ralador",
+    left:352,
+    top:1464,
+    width:390,
+    height:82
+}
+
+];
+
+function atualizarAreas(){
+
+    const img=document.getElementById("imagem");
+
+    const escala=img.clientWidth/ORIGINAL_WIDTH;
+
+    areas.forEach(area=>{
+
+        const el=document.querySelector("." + area.class);
+
+        el.style.left=(area.left*escala)+"px";
+        el.style.top=(area.top*escala)+"px";
+        el.style.width=(area.width*escala)+"px";
+        el.style.height=(area.height*escala)+"px";
+
+    });
+
+}
+
+window.addEventListener("load",atualizarAreas);
+window.addEventListener("resize",atualizarAreas);
+
+</script>
+
+</body>
+</html>
